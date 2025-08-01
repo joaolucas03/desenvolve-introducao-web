@@ -1,0 +1,163 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Satisfação</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .form-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .radio-group {
+            margin-bottom: 15px;
+        }
+        .radio-group label {
+            font-weight: normal;
+            margin-right: 20px;
+        }
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-section">
+        <h2>Dados Pessoais</h2>
+        <form action="/submit" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" pattern="[0-9]{10,11}" placeholder="Ex: 11987654321" required>
+    </div>
+
+    <div class="form-section">
+        <h2>Pesquisa de Satisfação</h2>
+        <div class="radio-group">
+            <label>1. Como você avalia nosso atendimento?</label>
+            <input type="radio" id="atendimento_excelente" name="atendimento" value="excelente" required>
+            <label for="atendimento_excelente">Excelente</label>
+            <input type="radio" id="atendimento_bom" name="atendimento" value="bom">
+            <label for="atendimento_bom">Bom</label>
+            <input type="radio" id="atendimento_regular" name="atendimento" value="regular">
+            <label for="atendimento_regular">Regular</label>
+            <input type="radio" id="atendimento_ruim" name="atendimento" value="ruim">
+            <label for="atendimento_ruim">Ruim</label>
+        </div>
+
+        <div class="radio-group">
+            <label>2. Você recomendaria nossos serviços?</label>
+            <input type="radio" id="recomenda_sim" name="recomenda" value="sim" required>
+            <label for="recomenda_sim">Sim</label>
+            <input type="radio" id="recomenda_nao" name="recomenda" value="nao">
+            <label for="recomenda_nao">Não</label>
+        </div>
+
+        <label for="frequencia">3. Com que frequência você utiliza nossos serviços?</label>
+        <select id="frequencia" name="frequencia" required>
+            <option value="" disabled selected>Selecione uma opção</option>
+            <option value="diariamente">Diariamente</option>
+            <option value="semanalmente">Semanalmente</option>
+            <option value="mensalmente">Mensalmente</option>
+            <option value="raramente">Raramente</option>
+        </select>
+
+        <div>
+            <input type="checkbox" id="compartilhar" name="compartilhar">
+            <label for="compartilhar">Autorizo compartilhar minhas respostas com terceiros</label>
+        </div>
+
+        <button type="submit">Enviar</button>
+    </form>
+    </div>
+</body>
+</html>
