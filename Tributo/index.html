@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tributo a um Ídolo — Ayrton Senna</title>
+  <style>
+    :root{
+      --bg:#0f172a;         /* slate-900 */
+      --panel:#111827;      /* gray-900 */
+      --muted:#94a3b8;      /* slate-400 */
+      --text:#e5e7eb;       /* gray-200 */
+      --accent:#22d3ee;     /* cyan-400 */
+      --accent-2:#fbbf24;   /* amber-400 */
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background:linear-gradient(180deg,var(--bg),#0b1220 40%, #060b16 100%);
+      color:var(--text); line-height:1.65;
+    }
+    a{color:var(--accent)}
+    header{
+      background: radial-gradient(1000px 400px at 20% -10%, rgba(34,211,238,.18), transparent),
+                 radial-gradient(800px 300px at 80% 0%, rgba(251,191,36,.15), transparent),
+                 linear-gradient(0deg, rgba(255,255,255,.02), rgba(255,255,255,.02));
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .wrap{max-width:1100px; margin:0 auto; padding:24px}
+    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:24px; align-items:center}
+    .title h1{font-size: clamp(28px, 4vw, 44px); margin:0 0 8px; letter-spacing:.4px}
+    .title p{margin:0; color:var(--muted)}
+    .hero-img{position:relative; border-radius:20px; overflow:hidden; box-shadow: 0 20px 60px rgba(0,0,0,.5)}
+    .hero-img img{display:block; width:100%; height:100%; object-fit:cover}
+    .badge{display:inline-block; padding:6px 10px; border-radius:999px; background: rgba(34,211,238,.15); color: var(--accent); font-weight:700; font-size:12px; letter-spacing:.6px; text-transform:uppercase}
+
+    main{display:grid; grid-template-columns: 1fr 320px; gap:24px; margin-top:24px}
+    .card{background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); border-radius:18px; padding:20px; box-shadow: 0 10px 30px rgba(0,0,0,.25)}
+    .card h2{margin-top:0; font-size: clamp(20px, 2.6vw, 28px)}
+    .muted{color:var(--muted)}
+
+    aside .profile{display:grid; gap:14px; text-align:center}
+    .avatar{width:140px; height:140px; border-radius:50%; overflow:hidden; margin:0 auto; border:3px solid rgba(34,211,238,.35)}
+    .avatar img{width:100%; height:100%; object-fit:cover}
+    .id-table{width:100%; border-collapse:collapse; font-size:15px}
+    .id-table td{padding:8px 6px; border-bottom:1px dashed rgba(255,255,255,.08)}
+    .id-table td:first-child{color:var(--muted)}
+
+    .section{margin-bottom:18px}
+    .section p{margin:0 0 10px}
+
+    .achievements table{width:100%; border-collapse:collapse}
+    .achievements th, .achievements td{padding:10px 8px; border-bottom:1px solid rgba(255,255,255,.08)}
+    .achievements th{text-align:left; color:var(--accent); letter-spacing:.3px}
+    .achievements tr:hover{background: rgba(255,255,255,.03)}
+
+    .media iframe, .media video{width:100%; aspect-ratio:16/9; border:0; border-radius:14px; box-shadow: 0 12px 30px rgba(0,0,0,.35)}
+
+    ul.check, ol.timeline{margin:8px 0 0 20px}
+    ul.check li{margin:6px 0}
+    ol.timeline li{margin:8px 0}
+
+    footer{
+      margin-top:32px; padding:24px 0; border-top:1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(251,191,36,.08), transparent);
+    }
+    .footer-grid{display:grid; grid-template-columns: 2fr 1fr; gap:24px}
+    .refs li{margin:6px 0}
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      main{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Cabeçalho: título principal + imagem de destaque -->
+  <header>
+    <div class="wrap hero">
+      <div class="title">
+        <span class="badge">Tributo</span>
+        <h1>Ayrton Senna — Velocidade, Técnica e <em>Legado</em></h1>
+        <p class="muted">Uma homenagem ao <strong>tríplice campeão mundial</strong> de Fórmula 1, cuja <em>determinação</em>, <strong>carisma</strong> e <em>excelência</em> inspiram milhões até hoje.</p>
+      </div>
+      <figure class="hero-img">
+        <!-- Imagem de destaque -->
+        <img src="https://cdn.shoppub.io/brogan/media/filer_public/40/20/4020262b-18d8-476c-aee2-4a82c137d31f/capa_mobile_blog_ayrton_senna.png" alt="Ayrton Senna em alta velocidade" />
+      </figure>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <main>
+      <!-- Conteúdo principal -->
+      <section class="card section" id="intro">
+        <h2>Apresentação</h2>
+        <p>Ayrton Senna da Silva (1960–1994) foi um piloto brasileiro de <strong>Fórmula 1</strong> reconhecido por sua <em>habilidade ímpar na chuva</em>, sua <strong>precisão</strong> em voltas rápidas e um <em>compromisso</em> inabalável com a <strong>perfeição</strong>. Mais do que títulos, Senna deixou um <em>impacto humano</em> que transcende o esporte.</p>
+      </section>
+
+      <section class="card section" id="career">
+        <h2>Carreira</h2>
+        <p>Senna começou no kart aos 4 anos e percorreu categorias de base na Europa até estrear na F1 em 1984. Passou por Toleman, Lotus e McLaren, onde viveu seu auge e as históricas disputas com Alain Prost. Em 1994, transferiu-se para a Williams. Sua carreira é lembrada por corridas <em>antológicas</em> como <strong>Mônaco/1984</strong>, <strong>Estoril/1985</strong> e <strong>Donington/1993</strong>.</p>
+        <ul class="check">
+          <li><strong>Pole positions:</strong> 65 (recorde por mais de uma década).</li>
+          <li><strong>Vitórias:</strong> 41 Grandes Prêmios.</li>
+          <li><strong>Títulos:</strong> 3 (1988, 1990, 1991).</li>
+        </ul>
+      </section>
+
+      <section class="card section achievements" id="achievements">
+        <h2>Conquistas (Tabela)</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Conquista</th>
+              <th>Ano</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Primeira vitória na F1 (Estoril)</td><td>1985</td></tr>
+            <tr><td>Primeiro título mundial (McLaren)</td><td>1988</td></tr>
+            <tr><td>Vitória histórica na chuva (Donington)</td><td>1993</td></tr>
+            <tr><td>Recorde de poles (65ª)</td><td>1994</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card section media" id="multimidia">
+        <h2>Multimídia</h2>
+        <p>Assista a momentos que mostram sua <strong>velocidade</strong> e <em>controle</em>:</p>
+        <!-- Vídeo do YouTube atualizado -->
+        <iframe src="https://www.youtube.com/embed/-pItzcHBHt0" title="Ayrton Senna — Vídeo Tributo" allowfullscreen></iframe>
+      </section>
+
+      <section class="card section" id="curiosidades">
+        <h2>Curiosidades & Outras Informações</h2>
+        <ul class="check">
+          <li>Referência em voltas de <em>classificação</em>; sua busca pelo ajuste fino era quase <strong>obsessiva</strong>.</li>
+          <li>Forte atuação social por meio do <strong>Instituto Ayrton Senna</strong>.</li>
+          <li>Ícone cultural no Brasil: símbolo de <em>esperança</em> e <strong>orgulho</strong> nacional.</li>
+        </ul>
+        <h3>Momentos Icônicos (Linha do Tempo)</h3>
+        <ol class="timeline">
+          <li><strong>1984</strong> — Estreia na F1 e corrida de Mônaco sob chuva intensa.</li>
+          <li><strong>1988</strong> — Conquista de seu <em>primeiro</em> campeonato mundial.</li>
+          <li><strong>1991</strong> — Vitória no Brasil com câimbras, guiando em <em>marcha presa</em>.</li>
+          <li><strong>1993</strong> — Donington Park: primeira volta considerada por muitos <em>lendária</em>.</li>
+        </ol>
+      </section>
+
+      <section class="card section" id="legado">
+        <h2>Legado e Impacto</h2>
+        <p>O legado de Senna combina <strong>excelência esportiva</strong> com <em>responsabilidade social</em>. Seu nome está ligado a projetos educacionais que beneficiam milhões de estudantes brasileiros. Como ídolo, inspira valores de <strong>disciplina</strong>, <em>coragem</em> e <strong>resiliência</strong>.</p>
+      </section>
+
+      <!-- Barra lateral: Ficha de identificação no <aside> -->
+      <aside>
+        <section class="card profile" aria-labelledby="ficha-titulo">
+          <h2 id="ficha-titulo">Ficha de Identificação</h2>
+          <div class="avatar">
+            <!-- Imagem de perfil -->
+            <img src="https://cdn.shoppub.io/brogan/media/filer_public/02/5e/025e95ae-ec28-4e27-821b-9ff9fd6daa1a/fotos_blog_ayrton_senna_14.png" alt="Retrato de Ayrton Senna" />
+          </div>
+          <table class="id-table">
+            <tr><td>Nome completo</td><td><strong>Ayrton Senna da Silva</strong></td></tr>
+            <tr><td>Nascimento</td><td>21 de março de 1960 — <em>São Paulo, Brasil</em></td></tr>
+            <tr><td>Falecimento</td><td>1º de maio de 1994 — <em>Ímola, Itália</em></td></tr>
+            <tr><td>Profissão</td><td>Piloto de Fórmula 1</td></tr>
+            <tr><td>Altura</td><td>1,76 m (aprox.)</td></tr>
+            <tr><td>Equipe(s)</td><td>Toleman, Lotus, McLaren, Williams</td></tr>
+          </table>
+          <p class="muted"><em>Nota:</em> substitua as imagens por arquivos locais ao entregar o trabalho.</p>
+        </section>
+      </aside>
+
+    </main>
+  </div>
+
+  <!-- Rodapé: referências + data de criação -->
+  <footer>
+    <div class="wrap footer-grid">
+      <div>
+        <h3>Referências</h3>
+        <ul class="refs">
+          <li><a href="https://senna.com/" target="_blank" rel="noopener noreferrer">Instituto Ayrton Senna — Site oficial</a></li>
+          <li><a href="https://www.formula1.com/en/drivers/hall-of-fame/Ayrton_Senna.html" target="_blank" rel="noopener noreferrer">F1 — Hall of Fame: Ayrton Senna</a></li>
+          <li><a href="https://pt.wikipedia.org/wiki/Ayrton_Senna" target="_blank" rel="noopener noreferrer">Wikipédia — Ayrton Senna</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Criação</h3>
+        <p class="muted">Página criada em <strong>26/08/2025</strong> para o trabalho "Tributo a Um Ídolo". Autor: <em>João Lucas</em>.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Dicas de entrega (comentários apenas no código) -->
+  <!--
+    ✓ Imagem de destaque no cabeçalho junto do título (OK)
+    ✓ Ficha de identificação dentro de <aside> (OK)
+    ✓ Referências e data no rodapé (OK)
+    ✓ Conquistas em tabela com conquista + ano (OK)
+    ✓ Seções principais com containers próprios e subtítulos (OK)
+    ✓ Negritos/itálicos usados > 6 vezes (OK)
+    ✓ Listas usadas pelo menos duas vezes (OK)
+    ✓ Elementos multimídia (OK)
+
+    Como entregar:
+    1) Baixe este arquivo como index.html.
+    2) Crie as pastas /img e /media e salve as imagens/vídeo locais, atualizando os src.
+    3) Valide no navegador e envie o pacote (HTML + recursos) em .zip.
+  -->
+</body>
+
+</html>
