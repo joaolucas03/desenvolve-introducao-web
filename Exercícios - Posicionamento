@@ -1,0 +1,17 @@
+.page-wrapper {
+  position: relative; /* 1. Definindo referência para posicionamento */
+}
+
+.explanation {
+  width: 60%;                /* 2. Largura de 60% */
+  margin-right: 35%;         /* Espaço à direita */
+  border-right: 1px solid #1f295c; /* Borda à direita */
+  padding-right: 2%;         /* Espaçamento interno no lado direito */
+}
+
+.design-menu {
+  position: absolute;  /* 3. Posicionando em relação ao .page-wrapper */
+  top: 560px;          /* Início após a introdução */
+  left: 62%;           /* Início após o painel .explanation */
+  padding: 0 2%;       /* Espaçamento interno horizontal para centralizar */
+}
