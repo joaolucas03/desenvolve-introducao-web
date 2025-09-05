@@ -1,0 +1,57 @@
+/* ===== 1. Diretivas gerais ===== */
+body {
+  width: 80%;
+  max-width: 1280px;
+  margin: 0 auto; /* Centraliza na tela */
+}
+
+#intro {
+  height: 550px;
+}
+
+#design-archives {
+  display: none; /* Remove da renderização */
+}
+
+/* ===== 2. Cabeçalho ===== */
+header {
+  background-color: #222; /* Fundo escuro */
+  color: #fff; /* Fonte clara */
+  display: flex; /* Coloca lado a lado */
+  justify-content: space-between; /* Espaço entre título e subtítulo */
+  align-items: center;
+  padding: 1em 0;
+}
+
+header h1 {
+  margin-left: 1em; /* Espaçamento lateral do título */
+}
+
+/* ===== 3. Menus ===== */
+.sidebar ul {
+  list-style: none; /* Remove bullets */
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 1em; /* Espaçamento entre itens */
+  text-align: center; /* Centraliza os itens */
+}
+
+/* ===== 4. Rodapé ===== */
+footer {
+  background-color: #111; /* Inversão de cor */
+  color: #fff;
+  margin: 4% 0; /* Espaçamento externo */
+  text-align: center;
+  padding: 1em 0;
+}
+
+footer a {
+  display: inline-block;
+  border: 2px solid #fff;
+  padding: 0.5em;
+  margin: 0.5em;
+  text-decoration: none;
+  color: inherit; /* Mantém cor do rodapé */
+}
