@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício - Pseudo classes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    /* ===== 1. Links ===== */
+    a {
+      color: #0055ff;         /* cor de destaque */
+      font-weight: bold;      /* negrito por padrão */
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #0033aa;         /* cor mais escura ao passar o mouse */
+    }
+
+    a:visited {
+      font-weight: normal;    /* não fica em negrito se já visitado */
+      color: #7a3cff;         /* cor diferente para visitado */
+    }
+
+    /* ===== 2. Primeira letra do 1º parágrafo ===== */
+    .principal p:first-of-type::first-letter {
+      font-size: 3em;          /* 3 vezes maior */
+      font-family: Georgia, serif; /* fonte diferente */
+      float: left;             /* flutua à esquerda */
+      margin-right: 8px;       /* espaço da letra pro texto */
+      color: #aa0000;          /* destaque opcional */
+    }
+
+    /* ===== 3. Menu com separadores ===== */
+    .menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu li {
+      padding: 10px;
+      border-top: 1px solid #000;   /* borda superior em todos */
+    }
+
+    .menu li:last-child {
+      border-bottom: 1px solid #000; /* só no último */
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="menu">
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Serviços</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="principal">
+    <p>
+      Este é o primeiro parágrafo da seção principal. Ele serve como exemplo
+      para aplicar pseudo-seletores e estilizar a primeira letra.
+    </p>
+    <p>
+      Este é um segundo parágrafo apenas para mostrar a diferença.
+    </p>
+  </main>
+
+</body>
+</html>
