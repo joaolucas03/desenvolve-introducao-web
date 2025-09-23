@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício Flexbox</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Rodapé da seção principal */
+    .rodape {
+      display: flex;
+      justify-content: center;   /* centraliza horizontalmente */
+      gap: 20px;                 /* espaçamento entre links */
+      flex-wrap: wrap;           /* quebra em telas pequenas */
+      margin-top: 20px;
+    }
+
+    .rodape a {
+      flex: 1;                   /* todos do mesmo tamanho */
+      text-align: center;
+      min-width: 100px;
+      text-decoration: none;
+      background: #eee;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    /* Seção de benefícios */
+    .beneficios {
+      display: flex;
+      border-top: 1px solid #000;
+      border-bottom: none; /* evita duplicação */
+      padding: 20px;
+    }
+
+    .beneficios .texto {
+      flex: 70%;
+    }
+
+    .beneficios .titulo {
+      flex: 30%;
+      display: flex;
+      align-items: center;  /* centraliza verticalmente */
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Seção de participação */
+    .participacao {
+      display: flex;
+      border-top: 1px solid #000;  /* apenas uma linha entre seções */
+      border-bottom: 1px solid #000;
+      padding: 20px;
+    }
+
+    .participacao .titulo,
+    .participacao .conteudo {
+      flex: 50%;
+    }
+
+    .participacao .titulo {
+      display: flex;
+      align-items: center; 
+      justify-content: center;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  
+  <main>
+    <!-- Seção principal com rodapé -->
+    <section class="principal">
+      <h1>Seção Principal</h1>
+      <p>Conteúdo da seção principal...</p>
+
+      <footer class="rodape">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+      </footer>
+    </section>
+
+    <!-- Seção de benefícios -->
+    <section class="beneficios">
+      <div class="texto">
+        <p>
+          Aqui ficam os detalhes dos benefícios oferecidos pela plataforma.  
+          Este texto ocupa cerca de 70% do espaço.
+        </p>
+      </div>
+      <h2 class="titulo">Benefícios</h2>
+    </section>
+
+    <!-- Seção de participação -->
+    <section class="participacao">
+      <h2 class="titulo">Participe</h2>
+      <div class="conteudo">
+        <p>
+          Aqui você pode se inscrever ou enviar seu formulário.  
+          Esta área ocupa 50% da largura junto ao título.
+        </p>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
